@@ -14,6 +14,10 @@ public class SimpleCalculator {
         scanner.useLocale(Locale.ENGLISH);
 
 
+        /**
+         * Example of non DRY
+         */
+
         do {
             print(" Please input first number:");
 
@@ -62,16 +66,9 @@ public class SimpleCalculator {
             print("Division error due that Second number is 0");
 
         }
-
-
-
     }
 
     private static void print(Object object) {
         System.out.println(object);
     }
-
-
-
-
 }
