@@ -1,5 +1,4 @@
 import java.util.Locale;
-import java.util.PrimitiveIterator;
 import java.util.Scanner;
 
 public class SimpleCalculator {
@@ -15,29 +14,43 @@ public class SimpleCalculator {
         scanner.useLocale(Locale.ENGLISH);
 
 
+        do {
+            print(" Please input first number:");
 
+            try {
+                final Double aDouble = Double.valueOf(scanner.next());
+                firstNumber = aDouble;
+                print("Your input "+firstNumber+" as a first number.");
 
+                break;
+            } catch (Exception e) {
+               // e.printStackTrace();
+                System.out.println("Вы ввели не число. Попробуйте еще раз, но по трезвому");
 
+            }
 
-    while (scanner.nextDouble()) {
-        print(" Please input first number:");
-        firstNumber = scanner.nextDouble();
+        } while (true);
 
+        do {
+            print("Please input second number:");
+            try {
+                final Double aDouble = Double.valueOf(scanner.next());
 
+                secondNumber =  aDouble;
 
-            System.out.println("Вы ввели не число. Попробуйте еще раз, но по трезвому");
+                print("Your input "+secondNumber+" as a second number.");
 
-    }
+                break;
+            } catch (Exception e) {
+                // e.printStackTrace();
+                System.out.println("Вы ввели не число. Попробуйте еще раз, но по трезвому");
 
+            }
 
+        } while (true);
 
-        print("Your input "+firstNumber+"as a first number.");
-        print("Please input second number:");
+        // не было времени сделать красивый метод и не копипастить ;)
 
-
-            secondNumber = scanner.nextDouble();
-
-        print("Your input "+secondNumber+"as a second number.");
         print("Your");
         print("Sum is : "+(firstNumber+secondNumber));
         print("Difference is : "+(firstNumber-secondNumber));
