@@ -1,9 +1,7 @@
 package homeWork4;
 
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
+import java.util.*;
 
 /**
  * Хранение данных о студентах (фамилии, оценки, посещение) - продумать реализацию.
@@ -32,7 +30,7 @@ public class HomeWork4_3 {
         checkIfContains("Алексей Алексеев");
         checkIfContains("Гоша");
 
-        removeByName("Алексей Алексеев");
+        removeByName("Коля Николаев");
 
         printTable();
 
@@ -83,6 +81,7 @@ public class HomeWork4_3 {
 
     private static void sortNames() {
         // myStudentClassArr.sort(myStudentClassArr);
+        Collections.sort(myStudentClassArr, Comparator.comparing(myStudents -> myStudents.name));
     }
 
     private static void print(Object object) {
@@ -91,14 +90,17 @@ public class HomeWork4_3 {
 
     private static void printTable() {
 
+        print("-----------------------------------------------------------------------------------------------");
         for (MyStudents student : myStudentClassArr
         ) {
             //System.out.print(student.name + " ");
 
             print(student.name);
-            print(Arrays.toString(student.marks));
-            print(Arrays.toString(student.presence));
+            print("Оценки: "+ Arrays.toString(student.marks));
+            print("Посещений: "+Arrays.toString(student.presence));
         }
+        print("-----------------------------------------------------------------------------------------------");
+
     }
 
     private static class MyStudents {
