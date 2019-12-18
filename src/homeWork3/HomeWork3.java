@@ -1,7 +1,7 @@
-import com.sun.corba.se.impl.ior.ObjectAdapterIdNumber;
+package homeWork3;
+
 
 import java.math.BigDecimal;
-import java.math.MathContext;
 import java.util.Locale;
 import java.util.Scanner;
 
@@ -29,7 +29,15 @@ public class HomeWork3 {
                         "\n" +
                         "4. Вывести на консоль графику (ширину и высоту задает пользователь) вида:\n" +
                         "\n"+
-                "Пожалуйста введите номер одного из заданий: \n");
+               " 5. Ввести число, определить четное или нет.\n"+
+                "\n"+
+                "6. Ввести число, определить простое ли оно.\n"+
+                "\n"+
+                "7. Ввести число, определить каким числам оно кратно.\n"+
+
+
+
+        "Пожалуйста введите номер одного из заданий: \n");
 
         Scanner scanner = new Scanner(System.in);
         scanner.useLocale(Locale.ENGLISH);
@@ -109,9 +117,52 @@ private static void taskSelector(int taskNumber) {
             double yearsOfInvest = enterCorrectNumber("длительность вклада");
             banking(deposit,percentage,yearsOfInvest);
             break;
+        case 4:
+            print("Вывести на консоль графику (ширину и высоту задает пользователь) вида:");
+            break;
+        case 5:
+            print("5. Ввести число, определить четное или нет.");
+           isNumberisOdd();
+            break;
+
+        case 6:
+            print("6. Ввести число, определить простое ли оно.");
+            isNumberisMean();
+            break;
+        case 7:
+            print("7. Ввести число, определить каким числам оно кратно.");
+            checkKratnost();
+            break;
 
     }
 }
+
+    private static void checkKratnost() {
+        int number= (int) enterCorrectNumber("");
+
+    }
+
+    private static void isNumberisMean() {
+        int number= (int) enterCorrectNumber("");
+        //TODO: перепроверить условия
+        if (number%number==0){
+            print("Ваше число четное!");
+        }else {
+            print("нечетное!");
+        }
+
+    }
+
+    private static void isNumberisOdd() {
+        int number= (int) enterCorrectNumber("");
+
+        if (number%2==0){
+            print("Ваше число четное!");
+        }else {
+            print("нечетное!");
+        }
+    }
+
     //Printer method
     private static void print(Object object) {
         System.out.println(object);
