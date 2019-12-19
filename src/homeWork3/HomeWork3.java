@@ -119,6 +119,7 @@ private static void taskSelector(int taskNumber) {
             break;
         case 4:
             print("Вывести на консоль графику (ширину и высоту задает пользователь) вида:");
+            graphicMethod();
             break;
         case 5:
             print("5. Ввести число, определить четное или нет.");
@@ -127,7 +128,7 @@ private static void taskSelector(int taskNumber) {
 
         case 6:
             print("6. Ввести число, определить простое ли оно.");
-            isNumberisMean();
+            isNumberisPrime();
             break;
         case 7:
             print("7. Ввести число, определить каким числам оно кратно.");
@@ -137,21 +138,88 @@ private static void taskSelector(int taskNumber) {
     }
 }
 
+    private static void graphicMethod() {
+        print("Введите ширину");
+        int width= (int) enterCorrectNumber("Ширина");
+        print("Введите высоту");
+        int height= (int) enterCorrectNumber("Высота");
+
+        //Длинна - два раза печать в строчку
+        //Ширина - печать в строчку
+
+        print("Прямоугольник");
+        //-----------------------
+        printTopBoottom(width);
+        printHeight(height, width);
+        printTopBoottom(width);
+        //-----------------------
+
+        print("в шазматном порядке");
+
+
+
+
+    }
+
+    static private void printTopBoottom(int width){
+        for (int j = 0; j < width; j++) {
+            System.out.print("*");
+        }
+        print("");
+    }
+    static private void printHeight(int height,int width){
+        for (int i = 2; i < height; i++) {
+
+            System.out.print("*");
+            for (int j = 2; j < width; j++) {
+
+                System.out.print(" ");
+
+                }
+            print("*");
+        }
+    }
+
     private static void checkKratnost() {
         int number= (int) enterCorrectNumber("");
 
-    }
+        for (int i = 2; i < number; i++) {
 
-    private static void isNumberisMean() {
-        int number= (int) enterCorrectNumber("");
-        //TODO: перепроверить условия
-        if (number%number==0){
-            print("Ваше число четное!");
-        }else {
-            print("нечетное!");
+            if (number % i == 0) {
+                print("Ваше число кратно: "+i);
+            }
         }
 
     }
+
+    private static boolean isNumberisPrime() {
+        boolean prime = false;
+
+            int number = (int) enterCorrectNumber("");
+
+
+
+            for (int i = 2; i < number; i++) {
+
+                if (number % i == 0) {
+                    print("Ваше число составное!");
+                    prime = true;
+                    break;
+                }
+            }
+            if (!prime) {
+                print("Число простое!");
+                prime = false;
+            }
+            return prime;
+
+
+
+        }
+
+
+
+
 
     private static void isNumberisOdd() {
         int number= (int) enterCorrectNumber("");
@@ -167,23 +235,25 @@ private static void taskSelector(int taskNumber) {
     private static void print(Object object) {
         System.out.println(object);
     }
-    private static int meanNumberOfAnArray(int[] array) {
-        int mean = 0;
+    private static double meanNumberOfAnArray(double[] array) {
+        double mean = 0;
         for (int i = 0; i < array.length; i++) {
             mean += array[i];
         }
-        mean=(mean/array.length);
 
+        mean=mean/(array.length);
+
+        print("Среднее число: "+mean);
         return mean;
     }
 
-    public static int[] fillAnArray() {
+    public static double[] fillAnArray() {
         Scanner scanner = new Scanner(System.in);
 
         System.out.print("Размер массива: ");
         int size = scanner.nextInt();
 
-        int[] array = new int[size];
+        double[] array = new double[size];
         for (int i = 0; i < size; i++) {
             System.out.print("Введите " + i + "-й элемент: ");
             array[i] = scanner.nextInt();
@@ -203,4 +273,5 @@ private static void taskSelector(int taskNumber) {
         }
 
     }
+
 }
