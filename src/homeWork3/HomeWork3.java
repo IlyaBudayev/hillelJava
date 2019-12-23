@@ -139,46 +139,66 @@ private static void taskSelector(int taskNumber) {
 }
 
     private static void graphicMethod() {
+        print("Введите Высота");
+        int height= (int) enterCorrectNumber("Высота");
         print("Введите ширину");
         int width= (int) enterCorrectNumber("Ширина");
-        print("Введите высоту");
-        int height= (int) enterCorrectNumber("Высота");
 
         //Длинна - два раза печать в строчку
         //Ширина - печать в строчку
 
         print("Прямоугольник");
-        //-----------------------
-        printTopBoottom(width);
-        printHeight(height, width);
-        printTopBoottom(width);
-        //-----------------------
+        drawRectangle(width,height);
 
-        print("в шазматном порядке");
 
+        print("в шахматном порядке");
+        drawChess(width,height);
 
 
 
     }
 
-    static private void printTopBoottom(int width){
-        for (int j = 0; j < width; j++) {
-            System.out.print("*");
+
+
+    static private void drawRectangle(int h, int w){
+        for (int i = 0; i < h; i++) {
+            for (int j = 0; j < w; j++) {
+                if (i == 0 || i == h - 1) {
+                    System.out.print('*');
+                } else {
+                    if (j == 0 || j == w - 1) {
+                        System.out.print('*');
+                    } else {
+                        System.out.print(' ');
+                    }
+                }
+            }
+            print("");
         }
-        print("");
     }
-    static private void printHeight(int height,int width){
-        for (int i = 2; i < height; i++) {
 
-            System.out.print("*");
-            for (int j = 2; j < width; j++) {
-
-                System.out.print(" ");
+    static private void drawChess(int h, int w){
+        for (int i = 0; i < h; i++) {
+            for (int j = 0; j < w; j++) {
+                if(i%2==0) {
+                    if (j % 2 == 0) {
+                        System.out.print('*');
+                    } else {
+                        System.out.print(' ');
+                    }
+                }else{
+                    if (j % 2 == 0) {
+                        System.out.print(' ');
+                    } else {
+                        System.out.print('*');
+                    }
 
                 }
-            print("*");
+            }
+            print("");
         }
     }
+
 
     private static void checkKratnost() {
         int number= (int) enterCorrectNumber("");
