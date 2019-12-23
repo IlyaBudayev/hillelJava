@@ -13,7 +13,7 @@ package homeWork5;
 
 
 public class MyArray {
-    private int[] numberArray=new int[1];
+    private int[] numberArray=new int[0];
     private int count=0;
 
 
@@ -58,7 +58,7 @@ public class MyArray {
     }
 
     public void clear(){
-        this.numberArray=new int[100];
+        this.numberArray=new int[0];
         count=0;
     }
 
