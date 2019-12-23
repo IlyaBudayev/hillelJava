@@ -20,12 +20,13 @@ public class Tester {
        print("if countains: i " +numbersInArray.contains(i));
 
        numbersInArray.sort();
-       print("sorted: "+numbersInArray);
+       print("sorted: "+ numbersInArray.toString());
 
        print("size: "+numbersInArray.getSize());
 
        print("index of i: " + numbersInArray.indexOf(i));
 
+       print("");
 
         numbersInArray.clear();
 

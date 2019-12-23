@@ -90,15 +90,12 @@ public class MyArray {
 
     }
 
-    public boolean equals(int num){
+    public boolean equals(int[] num){
 
         boolean equal=false;
 
-        for (int i: this.numberArray){
-            if (i==num){
-                equal=true;
-                break;
-            }
+        if(this.numberArray==num){
+            equal=true;
         }
 
         return equal;
