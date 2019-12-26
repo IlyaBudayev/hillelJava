@@ -37,6 +37,6 @@ public class Animal {
     }
 
     public void golos(){
-        System.out.print("Hello, ");
+        System.out.print("\n Hello, ");
     }
 }

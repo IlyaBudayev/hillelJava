@@ -15,7 +15,7 @@ public class Pets extends Animal {
     @Override
     public void golos() {
         super.golos();
-        System.out.println("my name is: "+name);
+        System.out.println(" my name is: "+name);
 
     }
 }

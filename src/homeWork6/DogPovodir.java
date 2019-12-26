@@ -12,7 +12,12 @@ public class DogPovodir extends Dog {
     @Override
     public void golos() {
         super.golos();
+        bringHome();
+    }
+
+    public void bringHome(){
         System.out.println(" come with me if you wonna live");
+
     }
 
 }
