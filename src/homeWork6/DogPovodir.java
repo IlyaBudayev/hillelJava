@@ -16,7 +16,7 @@ public class DogPovodir extends Dog {
     }
 
     public void bringHome(){
-        System.out.println(" come with me if you wonna live");
+        System.out.println(" come with me if you wanna live");
 
     }
 

@@ -1,6 +1,6 @@
 package homeWork6;
 
-public class Animal {
+public class Animal  {
 //    id (у всех животных),
 //    age(у всех животных),
 //    weight(у всех животных),
