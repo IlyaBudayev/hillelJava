@@ -23,10 +23,10 @@ public class Main {
         Animal wolf= new Wild(4,15,120,"Grey",true);
         Animal lion = new Wild(5,1,53,"White",true);
         Animal jiraf = new Wild(6,2,200,"Yellow and black",false);
-        Animal pet = new Pets(7,2,7,"red",true,"Tvarina");
+        Animal pet = new Pet(7,2,7,"red",true,"Tvarina");
         Animal crocodile= new Wild(8,2,100,"Green",true);
         Animal wild = new Wild(9, 10, 80,"Brown",false);
-        Animal xhamster = new Pets(10,1,0.1,"grey",false,"Jerry");
+        Animal xhamster = new Pet(10,1,0.1,"grey",false,"Jerry");
         Animal povodir = new DogPovodir(11,2,50,"white",true,"Lessy",true);
 
         ArrayList<Animal> myAnimalArr = new ArrayList<>();
