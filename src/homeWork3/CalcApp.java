@@ -1,23 +1,26 @@
+package homeWork3;
+
 import java.util.Locale;
 import java.util.Scanner;
 
-public class SimpleCalculator {
-
-    public static void main(String[] args) {
+public class CalcApp {
 
 
-        double firstNumber=0.0;
-        double secondNumber=0.0;
-        String action="";
+    /**
+     * Example of non DRY
+     */
+
+
+    public static void start() {
+
+        double firstNumber = 0.0;
+        double secondNumber = 0.0;
+        String action = "";
 
 
         Scanner scanner = new Scanner(System.in);
         scanner.useLocale(Locale.ENGLISH);
 
-
-        /**
-         * Example of non DRY
-         */
 
         do {
             print(" Please input first number:");
@@ -25,11 +28,11 @@ public class SimpleCalculator {
             try {
                 final Double aDouble = Double.valueOf(scanner.next());
                 firstNumber = aDouble;
-                print("Your input "+firstNumber+" as a first number.");
+                print("Your input " + firstNumber + " as a first number.");
 
                 break;
             } catch (Exception e) {
-               // e.printStackTrace();
+                // e.printStackTrace();
                 System.out.println("Вы ввели не число. Попробуйте еще раз, но по трезвому");
 
             }
@@ -39,18 +42,16 @@ public class SimpleCalculator {
         do {
             print("Please input Math operator (+-/*):");
             try {
-                final String aDouble = (scanner.next());
-                print(aDouble);
+                final String aDouble = String.valueOf(scanner.next());
 
                 if (aDouble.equals("+")||aDouble.equals("-")||aDouble.equals("/")||aDouble.equals("*")) {
-                    action =aDouble ;
-                }else
-                    {
-                        Exception exc = new Exception();
-                      throw exc;
-                    }
+                    action = aDouble;
+                } else {
+                    Exception exc = new Exception();
+                    throw exc;
+                }
 
-                print("Your input "+secondNumber+" as a second number.");
+               // print("Your input " + secondNumber + " as a second number.");
 
                 break;
             } catch (Exception e) {
@@ -67,9 +68,9 @@ public class SimpleCalculator {
             try {
                 final Double aDouble = Double.valueOf(scanner.next());
 
-                secondNumber =  aDouble;
+                secondNumber = aDouble;
 
-                print("Your input "+secondNumber+" as a second number.");
+                print("Your input " + secondNumber + " as a second number.");
 
                 break;
             } catch (Exception e) {
@@ -83,16 +84,15 @@ public class SimpleCalculator {
         // не было времени сделать красивый метод и не копипастить ;)
 
 
-
         print("Your");
 
-        if(action=="+") {
+        if (action.equals("+")) {
             print("Sum is : " + (firstNumber + secondNumber));
-        }else  if(action=="-") {
+        } else if (action.equals("-")) {
             print("Difference is : " + (firstNumber - secondNumber));
-        }else  if(action=="*") {
+        } else if (action.equals("*") ) {
             print("Multiplication is : " + (firstNumber * secondNumber));
-        }else  if(action=="/") {
+        } else if (action.equals("/")) {
             if (secondNumber != 0) {
                 print("Division is : " + (firstNumber / secondNumber));
             } else {
@@ -100,9 +100,11 @@ public class SimpleCalculator {
 
             }
         }
-    }
 
-    private static void print(Object object) {
-        System.out.println(object);
     }
+        private static void print (Object s){
+            System.out.println(s);
+
+        }
+
 }

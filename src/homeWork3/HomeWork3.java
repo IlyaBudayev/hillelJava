@@ -10,7 +10,7 @@ public class HomeWork3 {
     private static double secondNumber;
 
 
-    public static void main(String[] args) {
+    public static void main(String[] args)  {
 
         double firstNumber=0.0;
         double secondNumber=0.0;
@@ -93,9 +93,13 @@ private static void taskSelector(int taskNumber) {
     switch (taskNumber) {
         case 0: // New Calculator
             print("Новое требование от заказчика калькулятора.");
+//
+//            firstNumber = enterCorrectNumber("First");
+//            secondNumber = enterCorrectNumber("Second");
 
-            firstNumber = enterCorrectNumber("First");
-            secondNumber = enterCorrectNumber("Second");
+         CalcApp calcApp=new CalcApp();
+
+         calcApp.start();
 
             break;
         case 1: // Average of two
@@ -137,6 +141,8 @@ private static void taskSelector(int taskNumber) {
 
     }
 }
+
+
 
     private static void graphicMethod() {
         print("Введите Высота");
