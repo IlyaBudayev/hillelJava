@@ -15,9 +15,12 @@ public class Tester {
 
         numbersInArray.addAll(anothercontainer);
 
+       print("is equal: "+numbersInArray.equals(anothercontainer));
+
         print(numbersInArray.get(7));
 
-       print("if countains: i " +numbersInArray.contains(i));
+        print("if countains: "+i+" " +numbersInArray.contains(i));
+       print("if countains: "+100+" " +numbersInArray.contains(100));
 
        numbersInArray.sort();
        print("sorted: "+ numbersInArray.toString());

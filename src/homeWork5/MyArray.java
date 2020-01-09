@@ -14,22 +14,24 @@ package homeWork5;
 
 public class MyArray {
     private int[] numberArray=new int[0];
-    private int count=0;
+    private int count =0;
+    //count - счетчик для контроля размера нового массива!
 
 
     public void add(int num){
 
-            int[] temp=this.numberArray;
 
-            this.numberArray=new int[count+1];
+        int[] temp=numberArray;
 
-            for (int i = 0; i <temp.length ; i++) {
-                this.numberArray[i]=temp[i];
-            }
+        numberArray=new int[count+1];
+
+        for (int i = 0; i <temp.length ; i++) {
+            numberArray[i]=temp[i];
+        }
 
 
-               this.numberArray[count] = num;
-                count++;
+        numberArray[count] = num;
+        count++;
 
 
         }
@@ -37,17 +39,22 @@ public class MyArray {
 
 
     public int get(int num){
-        int whatTOget;
-
-     whatTOget = this.numberArray[num];
-
+        int whatTOget=0;
+        if (numberArray.length<num) {
+        whatTOget = numberArray[num];
         return whatTOget;
+      }else {
+            System.out.println("OUT of BOUND EXCEPTION");
+        }
+
+            return whatTOget;
+
     }
 
     public boolean contains(int num){
         boolean contain=false;
 
-        for (int i: this.numberArray){
+        for (int i: numberArray){
             if (i==num){
                 contain=true;
                 break;
@@ -58,21 +65,19 @@ public class MyArray {
     }
 
     public void clear(){
-        this.numberArray=new int[0];
+        numberArray=new int[0];
         count=0;
     }
 
     public int getSize(){
-        int size = 0;
-
-        size=this.numberArray.length;
+       int size=numberArray.length;
 
         return  size;
     }
 
     public int indexOf(int num){
         int index=-1;
-        for (int i = 0; i <this.numberArray.length; i++) {
+        for (int i = 0; i <numberArray.length; i++) {
             if(numberArray[i]==num){
                 index=i;
                 break;
@@ -94,7 +99,7 @@ public class MyArray {
 
         boolean equal=false;
 
-        if(this.numberArray==num){
+        if(this.numberArray.equals(num)){
             equal=true;
         }
 
@@ -103,15 +108,26 @@ public class MyArray {
 
     public void sort(){
 
-        for(int i = this.numberArray.length-1 ; i > 0 ; i--) {
+        for(int i = numberArray.length-1 ; i > 0 ; i--) {
             for (int j = 0; j < i; j++) {
-                if (this.numberArray[j] > this.numberArray[j + 1]) {
-                    int tmp = this.numberArray[j];
-                    this.numberArray[j] = this.numberArray[j + 1];
-                    this.numberArray[j + 1] = tmp;
+                if (this.numberArray[j] > numberArray[j + 1]) {
+                    int tmp = numberArray[j];
+                    numberArray[j] = numberArray[j + 1];
+                    numberArray[j + 1] = tmp;
                 }
             }
 
         }
+    }
+    @Override
+    public String toString(){
+        String s="";
+
+        for (int i: numberArray
+             ) {
+            s=s+i+" ";
+        }
+
+        return s;
     }
 }

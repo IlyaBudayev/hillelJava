@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Main {
     public static void main(String[] args) {
 
-//        Животное,
+//                Животное,
 //                Рыбка,
 //                Собака,
 //                Кот,
@@ -31,6 +31,7 @@ public class Main {
 
         ArrayList<Animal> myAnimalArr = new ArrayList<>();
         myAnimalArr.add(animal);
+
         myAnimalArr.add(fish);
 
         myAnimalArr.add(kitty);
