@@ -154,14 +154,14 @@ private static void taskSelector(int taskNumber) {
         //Ширина - печать в строчку
 
         print("Прямоугольник");
-        drawRectangle(width,height);
+        drawRectangle(height,width);
 
 
         print("в шахматном порядке");
-        drawChess(width,height);
+        drawChess(height,width);
 
         print("Конверт");
-        drawEnvelope(width,height);
+        drawEnvelope(height,width);
 
 
 
