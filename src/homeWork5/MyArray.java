@@ -39,8 +39,8 @@ public class MyArray {
 
 
     public int get(int num){
-        int whatTOget=0;
-        if (numberArray.length<num) {
+      int whatTOget=0;
+        if (numberArray.length> num) {
         whatTOget = numberArray[num];
         return whatTOget;
       }else {
