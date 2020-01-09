@@ -154,6 +154,9 @@ private static void taskSelector(int taskNumber) {
         print("в шахматном порядке");
         drawChess(width,height);
 
+        print("Конверт");
+        drawEnvelope(width,height);
+
 
 
     }
@@ -177,6 +180,23 @@ private static void taskSelector(int taskNumber) {
         }
     }
 
+    static private void drawEnvelope(int h, int w)
+    {
+
+        for (int i = 1; i <= h; i++) {
+            for (int j = 1; j < w; j++) {
+                if (i == 1 || i == h || j == 1 || j == w || i == j  || j == w + 1 - i) {
+                    System.out.print("*");
+                } else {
+                    System.out.print(" ");
+                }
+
+            }
+            System.out.println("*");
+        }
+
+}
+
     static private void drawChess(int h, int w){
         for (int i = 0; i < h; i++) {
             for (int j = 0; j < w; j++) {
@@ -198,6 +218,8 @@ private static void taskSelector(int taskNumber) {
             print("");
         }
     }
+
+
 
 
     private static void checkKratnost() {
