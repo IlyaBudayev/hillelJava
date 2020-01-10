@@ -1,6 +1,5 @@
 package homeWork7_Collection;
 
-import sun.awt.windows.WPrinterJob;
 
 public class Main {
     public static void main(String[] args) {
@@ -53,6 +52,9 @@ public class Main {
         container.retainAll(container2);
         print(container);
 
+        container.add(15);
+
+        print(container);
         container.removeAll(container2);
         print(container);
 
