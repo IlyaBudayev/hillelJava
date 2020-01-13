@@ -8,7 +8,7 @@ public class MyFibo {
 
     }
 
-    private static int getFiboOf(int index){
+    private static long getFiboOf(int index){
         if(index==1 || index==2){
             return 1;
         }else {
