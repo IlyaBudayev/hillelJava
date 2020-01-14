@@ -1,12 +1,16 @@
 package HomeWork8_Fibo;
 
-import javafx.scene.chart.ScatterChart;
+import java.math.BigInteger;
 
 public class MyFibo {
+
+   static int yourNumber=100;
+
     public static void main(String[] args) {
 
 
-        System.out.println(calculateFib(35));
+
+        System.out.println(calculateFib(yourNumber));
 
     }
 
@@ -18,17 +22,17 @@ public class MyFibo {
         }
     }
 
-    public static long[] cache = new long[51];
+    public static BigInteger[] cache = new BigInteger[yourNumber+1];
 
-    public static long calculateFib(int ind){
-        if(cache[ind]!=0){
+    public static BigInteger calculateFib(int ind){
+        if(cache[ind]!=null){
             return cache[ind];
         }else if(ind==0||ind==1||ind==2){
-             cache[ind]=1;
-            return 1;
+             cache[ind]= BigInteger.valueOf(1);
+            return BigInteger.valueOf(1);
 
         }else if(ind>2) {
-            long resultat= (calculateFib(ind-1) +calculateFib(ind-2));
+            BigInteger resultat= (calculateFib(ind-1).add(calculateFib(ind-2)));
             cache[ind]=resultat;
             return cache[ind];
         }
