@@ -106,7 +106,7 @@ private static void taskSelector(int taskNumber) {
             print("1. Программа, которая находит среднее арифметическое значение двух чисел.");
             firstNumber = enterCorrectNumber("First");
             secondNumber = enterCorrectNumber("Second");
-            print("Среднее арифметическое из 2х чисел, равно: " + (firstNumber / secondNumber));
+            print("Среднее арифметическое из 2х чисел, равно: " + ((firstNumber + secondNumber))/2);
             break;
         case 2: // Average of any
             print("2. Программа, которая находит среднее арифметическое значение множества чисел.");
@@ -191,12 +191,11 @@ private static void taskSelector(int taskNumber) {
 
         for (int i = 1; i <= h; i++) {
             for (int j = 1; j < w; j++) {
-                if (i == 1 || i == h || j == 1 || j == w || i == j  || j == w + 1 - i) {
+                if (i == 1 || i == h || j == 1 || i==j*h/w  || i==(w-j+1)*h/w) {
                     System.out.print("*");
                 } else {
                     System.out.print(" ");
                 }
-
             }
             System.out.println("*");
         }
@@ -241,23 +240,21 @@ private static void taskSelector(int taskNumber) {
     }
 
     private static boolean isNumberisPrime() {
-        boolean prime = false;
+        boolean prime = true;
 
             int number = (int) enterCorrectNumber("");
-
-
 
             for (int i = 2; i < number; i++) {
 
                 if (number % i == 0) {
                     print("Ваше число составное!");
-                    prime = true;
+                    prime = false;
                     break;
                 }
             }
-            if (!prime) {
+            if (prime) {
                 print("Число простое!");
-                prime = false;
+                prime = true;
             }
             return prime;
 
@@ -299,12 +296,30 @@ private static void taskSelector(int taskNumber) {
         Scanner scanner = new Scanner(System.in);
 
         System.out.print("Размер массива: ");
-        int size = scanner.nextInt();
+        int size = 2;
+
+        do {
+            try {
+                size=scanner.nextInt();
+
+                if(size<2){
+                    throw new  Exception();
+                }else{
+                     break;
+                }
+
+            }catch (Exception e){
+                print("The size myst be not less than 2");
+            }
+        }while (true);
+
+
 
         double[] array = new double[size];
+
         for (int i = 0; i < size; i++) {
             System.out.print("Введите " + i + "-й элемент: ");
-            array[i] = scanner.nextInt();
+            array[i] = scanner.nextDouble();
         }
 
         return array;
