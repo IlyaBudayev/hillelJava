@@ -7,7 +7,7 @@ import java.util.Collection;
 import java.util.Iterator;
 
 
-public class MyContainer implements Collection {
+ class MyContainer implements Collection {
 
    private Object[] objects=new Object[0];
 
