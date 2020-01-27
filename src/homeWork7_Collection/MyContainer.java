@@ -53,7 +53,7 @@ import java.util.Iterator;
             @Override
             public Object next() {
                 if (index == objects.length) {
-                    throw new IndexOutOfBoundsException("oh-oh");
+                    throw new IndexOutOfBoundsException("");
                 }
                 Object result = objects[index];
                 index++;
