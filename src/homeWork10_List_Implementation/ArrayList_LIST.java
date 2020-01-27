@@ -2,10 +2,7 @@ package homeWork10_List_Implementation;
 
 import org.jetbrains.annotations.NotNull;
 
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.List;
-import java.util.ListIterator;
+import java.util.*;
 
 public class ArrayList_LIST implements List {
 
@@ -24,7 +21,17 @@ public class ArrayList_LIST implements List {
 
     @Override
     public boolean contains(Object o) {
-        return false;
+        boolean contain=false;
+
+        for (Object obj: objects) {
+            if(obj==(o)){
+                contain=true;
+                break;
+            }
+
+        }
+
+        return contain;
     }
 
     @NotNull
@@ -75,8 +82,6 @@ public class ArrayList_LIST implements List {
     @Override
     public boolean remove(Object o) {
 
-        int size = size();
-
         Object[] temp = objects;
 
         objects = new Object[0];
@@ -101,7 +106,12 @@ public class ArrayList_LIST implements List {
 
     @Override
     public boolean addAll(int index, @NotNull Collection c) {
-        return false;
+        for (Object obj : c){
+            add(index ,obj);
+            index++;
+
+        }
+        return true;
     }
 
     @Override
@@ -114,7 +124,7 @@ public class ArrayList_LIST implements List {
     @Override
     public Object get(int index) {
 
-        if (size() >= index){
+        if (size() <= index){
             throw new IndexOutOfBoundsException("");
 
     }
@@ -125,7 +135,7 @@ public class ArrayList_LIST implements List {
     @Override
     public Object set(int index, Object element) {
 
-        if (size() >= index){
+        if (size() <= index){
             throw new IndexOutOfBoundsException("");
 
         }
@@ -135,13 +145,32 @@ public class ArrayList_LIST implements List {
 
     @Override
     public void add(int index, Object element) {
+        int size = size();
+
+        Object[] temp = new Object[size+1];
+       // Object[] secondPart = subList(index, size - 1).toArray();
+        for (int i = 0; i <temp.length ; i++) {
+            if (index==i){
+                temp[index]=element;
+
+            }else {
+
+                if(i>index){
+                    temp[i] = objects[i-1];
+                }else {
+                    temp[i] = objects[i];
+                }
+            }
+        }
+
+        objects=temp;
 
     }
 
     @Override
     public Object remove(int index) {
 
-        if (size() >= index){
+        if (size() <= index){
             throw new IndexOutOfBoundsException("");
 
         }
@@ -242,5 +271,12 @@ public class ArrayList_LIST implements List {
     @Override
     public Object[] toArray(@NotNull Object[] a) {
         return new Object[0];
+    }
+
+    @Override
+    public String toString() {
+        return "MyContainer{" +
+                "objects=" + Arrays.toString(objects) +
+                '}';
     }
 }
