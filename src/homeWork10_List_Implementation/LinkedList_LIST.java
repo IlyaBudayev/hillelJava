@@ -133,17 +133,49 @@ public class LinkedList_LIST implements List {
 
     @Override
     public void clear() {
+        cacheSize=0;
+        head = new Node(null,null);
+
 
     }
 
     @Override
     public Object get(int index) {
-        return null;
+
+        if(cacheSize<=index){
+            throw new IndexOutOfBoundsException("");
+        }
+
+        Object[] cc=toArray();
+
+
+        for (int i = 0; i < cc.length ; i++) {
+            if(i==index) {
+                return cc[i];
+            }
+        }
+
+        return true;
+
     }
 
     @Override
     public Object set(int index, Object element) {
-        return null;
+        if(cacheSize<=index){
+            throw new IndexOutOfBoundsException("");
+        }
+
+        Object[] cc=toArray();
+
+
+
+        for (int i = 0; i < cc.length ; i++) {
+            if(i==index) {
+                 cc[i]=element;
+            }
+        }
+
+        return true;
     }
 
     @Override
