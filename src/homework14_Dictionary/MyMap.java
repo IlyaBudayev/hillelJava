@@ -4,7 +4,7 @@ package homework14_Dictionary;
 
 
 public class MyMap {
-    private int capacity = 10;
+    private int capacity = 0;
     private Entry[] array = new Entry[capacity];
 
 

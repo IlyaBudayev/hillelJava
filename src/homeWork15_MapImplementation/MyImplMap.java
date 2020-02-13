@@ -3,28 +3,28 @@ package homeWork15_MapImplementation;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.Collection;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 public class MyImplMap implements Map {
 
-    private Entry[] array = new Entry[capacity];
     private int capacity = 10;
+    private Entry[] array = new Entry[capacity];
+    private ArrayList<Entry> myEntry = new ArrayList<>();
 
     @Override
     public int size() {
-        return 0;
+
+        return array.length;
     }
 
     @Override
     public boolean isEmpty() {
-        return false;
+        return array.length==0;
     }
 
     @Override
     public boolean containsKey(Object key) {
-        return false;
+        return get(key)!=null;
     }
 
     @Override
@@ -40,6 +40,8 @@ public class MyImplMap implements Map {
     @Nullable
     @Override
     public Object put(Object key, Object value) {
+
+
         return null;
     }
 
@@ -55,7 +57,7 @@ public class MyImplMap implements Map {
 
     @Override
     public void clear() {
-
+        array= new Entry[0];
     }
 
     @NotNull
@@ -67,7 +69,7 @@ public class MyImplMap implements Map {
     @NotNull
     @Override
     public Collection values() {
-        return null;
+        return Arrays.asList(array);
     }
 
     @NotNull
