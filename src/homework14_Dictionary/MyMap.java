@@ -5,12 +5,25 @@ package homework14_Dictionary;
 
 public class MyMap {
     private Entry[] array = new Entry[0];
+    private int capacity = 10;
 
     public MyMap() {
     }
 
     public String get(String key){
-        int hash  = hash(key);
+        int hash  = index(key);
+        if(array[hash]!=null){
+            Entry current = array[hash];
+            while (true){
+                if(current.key.equals(key)){
+                    return current.value;
+                }
+                if(current == null){
+                    return null;
+                }
+                current = current.next;
+            }
+        }
         return array[hash].value;
     }
 
@@ -20,7 +33,7 @@ public class MyMap {
 
         Entry entry = new Entry(key, value);
 
-        int number = hash(key);
+        int number = index(key);
 
         add(entry, number);
 
@@ -64,6 +77,7 @@ public class MyMap {
     private static class Entry{
         String key;
         String value;
+        Entry next;
 
         public Entry(String key, String value) {
             this.key = key;
@@ -73,10 +87,14 @@ public class MyMap {
 
     }
 
-    private int hash(String s){
+    private int index(String s){
 
-        System.out.println(s.length());
-        return s.length();
+        int hash = s.length();
+
+        hash = Math.abs(hash);
+        hash = hash % capacity;
+        return hash;
     }
+
 
 }
