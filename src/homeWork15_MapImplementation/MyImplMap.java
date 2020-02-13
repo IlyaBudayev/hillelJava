@@ -8,6 +8,10 @@ import java.util.Map;
 import java.util.Set;
 
 public class MyImplMap implements Map {
+
+    private Entry[] array = new Entry[capacity];
+    private int capacity = 10;
+
     @Override
     public int size() {
         return 0;
