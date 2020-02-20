@@ -10,7 +10,10 @@ public class Main {
 
         myMap.put("Alphabet", "Алфавит");
         myMap.put("Zepelin", "Дирижабль");
-
+        myMap.put("Alphabet1", "Алфавит1");
+        myMap.put("Zepelin1", "Дирижабль1");
+        myMap.put("Zepelin2", "Дирижабль2");
+        myMap.put("Zepelin3", "Дирижабль3");
 
         MyMap myMap2 = new MyMap();
 

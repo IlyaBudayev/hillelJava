@@ -4,9 +4,9 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.*;
 
-public class ArrayList_LIST implements List {
+public class ArrayList_LIST<T> implements List<T> {
 
-    private Object[] objects=new Object[0];
+    private Object[] objects= new Object[0];
 
     @Override
     public int size() {
@@ -51,7 +51,7 @@ public class ArrayList_LIST implements List {
                 if (index == objects.length) {
                     throw new IndexOutOfBoundsException("");
                 }
-                Object result = objects[index];
+                T result = myElement(index);
                 index++;
                 return result;
             }
@@ -66,7 +66,7 @@ public class ArrayList_LIST implements List {
     }
 
     @Override
-    public boolean add(Object o) {
+    public boolean add(T o) {
         int size = size();
 
         Object[] temp = new Object[size+1];
@@ -74,7 +74,7 @@ public class ArrayList_LIST implements List {
             temp[i]=objects[i];
         }
         temp[size]=o;
-        objects=temp;
+        objects= temp;
 
         return true;
     }
@@ -88,7 +88,7 @@ public class ArrayList_LIST implements List {
 
         for (int i = 0; i < temp.length; i++) {
             if(!temp[i].equals(o)) {
-                add(temp[i]) ;
+                add((T) temp[i]) ;
             }
         }
         return true;
@@ -98,7 +98,7 @@ public class ArrayList_LIST implements List {
     public boolean addAll(@NotNull Collection c) {
 
         for (Object obj : c){
-            add(obj);
+            add((T) obj);
 
         }
         return true;
@@ -107,7 +107,7 @@ public class ArrayList_LIST implements List {
     @Override
     public boolean addAll(int index, @NotNull Collection c) {
         for (Object obj : c){
-            add(index ,obj);
+            add(index , (T) obj);
             index++;
 
         }
@@ -121,34 +121,41 @@ public class ArrayList_LIST implements List {
 
     }
 
+    T myElement(int index) {
+        return (T) objects[index];
+    }
+
     @Override
-    public Object get(int index) {
+    public T get(int index) {
 
         if (size() <= index){
             throw new IndexOutOfBoundsException("");
 
     }
+        T getObj = myElement(index);
 
-    return objects[index];
+    return getObj;
     }
 
     @Override
-    public Object set(int index, Object element) {
+    public T set(int index, T element) {
 
         if (size() <= index){
             throw new IndexOutOfBoundsException("");
 
         }
 
-        return objects[index]=element;
+        T getObj = myElement(index);
+
+        return getObj= (T) element;
     }
 
     @Override
-    public void add(int index, Object element) {
+    public void add(int index, T element) {
         int size = size();
 
-        Object[] temp = new Object[size+1];
-       // Object[] secondPart = subList(index, size - 1).toArray();
+        T[] temp = (T[]) new Object[size+1];
+       // T[] secondPart = subList(index, size - 1).toArray();
         for (int i = 0; i <temp.length ; i++) {
             if (index==i){
                 temp[index]=element;
@@ -156,36 +163,37 @@ public class ArrayList_LIST implements List {
             }else {
 
                 if(i>index){
-                    temp[i] = objects[i-1];
+                    temp[i] = (T) objects[i-1];
                 }else {
-                    temp[i] = objects[i];
+                    temp[i] = (T) objects[i];
                 }
             }
         }
 
-        objects=temp;
+        objects= (T[]) temp;
 
     }
 
     @Override
-    public Object remove(int index) {
+    public T remove(int index) {
 
         if (size() <= index){
             throw new IndexOutOfBoundsException("");
 
         }
 
-        Object[] temp = objects;
+        T[] temp = (T[]) objects;
 
-        objects = new Object[0];
+
+        T oldObj = (T) objects[index];
+        objects = (T[]) new Object[0];
 
         for (int i = 0; i < temp.length; i++) {
             if(i!=index) {
                 add(temp[i]) ;
             }
         }
-        return true;
-
+        return oldObj;
     }
 
     @Override
