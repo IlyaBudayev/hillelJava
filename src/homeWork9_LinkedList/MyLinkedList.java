@@ -21,7 +21,7 @@ public class MyLinkedList implements Collection {
     @Override
     public boolean isEmpty() {
 
-        return head.getNext()==null;
+        return head.getObject()==null;
     }
 
     @Override
