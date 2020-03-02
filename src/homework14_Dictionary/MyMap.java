@@ -44,9 +44,7 @@ public class MyMap {
     public boolean add(Entry o,int index) {
 
       //  int size = array.length+1;
-        Entry[] temp = new Entry[capacity];
-
-        temp = array;
+        Entry[] temp = array;
 
          temp[index]=o;
 

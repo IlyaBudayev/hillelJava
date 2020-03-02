@@ -21,22 +21,20 @@ public class ArrayList_LIST<T> implements List<T> {
 
     @Override
     public boolean contains(Object o) {
-        boolean contain=false;
 
         for (Object obj: objects) {
-            if(obj==(o)){
-                contain=true;
-                break;
+            if(obj.equals(o)){
+               return true;
             }
 
         }
 
-        return contain;
+        return false;
     }
 
     @NotNull
     @Override
-    public Iterator iterator() {
+    public Iterator<T> iterator() {
         return new Iterator() {
 
             private int index = 0;
@@ -47,7 +45,7 @@ public class ArrayList_LIST<T> implements List<T> {
             }
 
             @Override
-            public Object next() {
+            public T next() {
                 if (index == objects.length) {
                     throw new IndexOutOfBoundsException("");
                 }

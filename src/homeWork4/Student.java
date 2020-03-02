@@ -1,7 +1,7 @@
 package homeWork4;
 
 public class Student {
-    Student student = new Student("vanya");
+    Student student;
     String name = "";
     int[] marks=new int[32];
 

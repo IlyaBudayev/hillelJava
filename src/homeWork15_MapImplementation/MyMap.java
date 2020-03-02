@@ -89,37 +89,17 @@ public class MyMap implements Map {
         return true;
     }
 
-    public boolean add(Entry o,int index) {
+    public boolean add(Entry o, int index) {
 
-        int size = array.length+1;
-        Entry[] temp = new Entry[size];
+        //  int size = array.length+1;
+        Entry[] temp = new Entry[capacity];
 
-        if (size==0){
-            temp = new Entry[index+1];
-            temp[index]=o;
-            array=temp;
-            return true;
-        }
-        if(size<=index) {
-            temp = new Entry[index+1];
+        temp = array;
 
-        }
+        temp[index]=o;
 
-
-        for (int i = 0; i <temp.length ; i++) {
-            if(i==index){
-                temp[index]=o;
-
-            }else if(array.length>i) {
-
-                temp[i] = array[i];
-            }else{
-                temp[i] = null;
-
-            }
-        }
         array=temp;
-
+        //    capacity=size;
         return true;
     }
 

@@ -22,7 +22,7 @@ public class MyTreeSet implements Set {
 
     @Override
     public boolean contains(Object o) {
-        if (root.getData()==o){
+        if (root.getData().equals(o)){
 
             return true;
         }
@@ -30,11 +30,11 @@ public class MyTreeSet implements Set {
     }
 
     private boolean searchRecuresively(Node treeRoot, Object o){
-        Integer oInt = (Integer) o;
+        Student objStudent = (Student) o;
 
-        Integer currentInt = (Integer) treeRoot.getData();
+        Student  currentInt = (Student) treeRoot.getData();
 
-        if(oInt> currentInt){
+        if( objStudent.compareTo(currentInt)>0 ){
             if(treeRoot.getRight()==null){
                 return false;
             }else if (treeRoot.getRight().getData()==(o)){
@@ -43,7 +43,7 @@ public class MyTreeSet implements Set {
 
                 return    searchRecuresively(treeRoot.getRight(),o);
 
-        }else if(oInt< currentInt) {
+        }else if(objStudent.compareTo(currentInt)<0) {
              if(treeRoot.getLeft()==null){
                 return false;
             } else if (treeRoot.getLeft().getData()==o){
@@ -79,18 +79,18 @@ public class MyTreeSet implements Set {
     }
 
     private boolean addRecursivelyToTree(Node treeRoot, Object o){
-        Integer oInt = (Integer) o;
+        Student anotherStud = (Student) o;
 
-        Integer currentInt = (Integer) treeRoot.getData();
+        Student thisStud = (Student) treeRoot.getData();
 
-        if(oInt> currentInt){
+        if(anotherStud.compareTo(thisStud)>0){
             if (treeRoot.getRight()==null){
                 treeRoot.setRight(new Node(o));
                 return true;
             }
 
             return    addRecursivelyToTree(treeRoot.getRight(),o);
-        }else if(oInt< currentInt) {
+        }else if(anotherStud.compareTo(thisStud)<0) {
             if (treeRoot.getLeft()==null){
                 treeRoot.setLeft(new Node(o));
                 return true;
@@ -177,22 +177,38 @@ public class MyTreeSet implements Set {
         }
     }
 
-    @Override
-    public String toString() {
-        String result = "[";
+//    @Override
+//    public String toString() {
+//        String result = "[";
+//
+//        Node current = root; // Перебор значнений от головы до хвоста!
+//        while (current!=null){
+//            result += current.getData()+", ";
+//            current=current.getRight();
+//
+//        }
+//
+//        return result  + "]";
+//    }
 
-        Node current = root; // Перебор значнений от головы до хвоста!
 
-
-        while (current!=null){
-            result += current.getData()+", ";
-            current=current.getRight();
-
+    public void print(){
+        if(root==null){
+            System.out.print("[]");
+            return;
         }
-
-        return result  + "]";
+        printInternal(root);
     }
 
+    private void printInternal(Node node){
+        if(node.getLeft()!=null){
+            printInternal(node.getLeft());
+        }
+        System.out.print(node.getData()+", ");
+        if(node.getRight()!=null){
+            printInternal(node.getRight());
+        }
+    }
 
     public static class Main{public static void main(String[] args) {
 

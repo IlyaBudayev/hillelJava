@@ -2,7 +2,7 @@ package homeWork17_Generics;
 
 import homeWork10_List_Implementation.ArrayList_LIST;
 
-import java.util.ArrayList;
+
 
 
 public class Main {
@@ -15,7 +15,7 @@ public class Main {
 
         System.out.println(myAnyList);
 
-        ArrayList<Object> objectArrayList= new ArrayList<>();
+        ArrayList_LIST<Object> objectArrayList= new ArrayList_LIST<>();
 
 
         objectArrayList.add("123");
@@ -24,7 +24,7 @@ public class Main {
 
         System.out.println(objectArrayList);
 
-        ArrayList<Double> doubleArrayList= new ArrayList<>();
+        ArrayList_LIST<Double> doubleArrayList= new ArrayList_LIST<>();
 
         doubleArrayList.add(12.3);
         doubleArrayList.add(11.3);
